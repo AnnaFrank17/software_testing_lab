@@ -73,8 +73,8 @@ namespace Task_1
             var group_avg = one.Avg_mark_group();
             var student_avg = one.Avg_mark_student(student_id);
 
-            Console.WriteLine($"Group avg is {group_avg}");
-            Console.WriteLine($"Student avg is {student_avg}");
+            Console.WriteLine($"Group average is {group_avg}");
+            Console.WriteLine($"Student average is {student_avg}");
         }
     }
 }
