@@ -50,7 +50,7 @@ namespace Task_1
                         Marks = new List<Mark>
                         {
                             new Mark {Value = 4},
-                            new Mark {Value = 8},
+                            new Mark {Value = 9},
                             new Mark {Value = 7}
                         }
                     },
