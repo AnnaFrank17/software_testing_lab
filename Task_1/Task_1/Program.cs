@@ -69,6 +69,7 @@ namespace Task_1
             };
 
             var student_id = 3;
+            var mark_border = 4;
 
             var group_avg = one.Avg_mark_group();
             var student_avg = one.Avg_mark_student(student_id);
@@ -76,7 +77,7 @@ namespace Task_1
             Console.WriteLine($"Group average is {group_avg}");
             Console.WriteLine($"Student average is {student_avg}");
 
-            if (student_avg < 4)
+            if (student_avg < mark_border)
             {
                 Console.WriteLine($"Student with id = {student_id} have bad marks");
             }
