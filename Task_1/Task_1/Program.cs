@@ -53,6 +53,17 @@ namespace Task_1
                             new Mark {Value = 9},
                             new Mark {Value = 7}
                         }
+                    },
+                    new Student
+                    {
+                        Id = 4,
+                        Name = "Valery",
+                        Marks = new List<Mark>
+                        {
+                            new Mark {Value = 6},
+                            new Mark {Value = 9},
+                            new Mark {Value = 7}
+                        }
                     }
                 }
             };
