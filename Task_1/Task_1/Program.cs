@@ -75,6 +75,11 @@ namespace Task_1
 
             Console.WriteLine($"Group average is {group_avg}");
             Console.WriteLine($"Student average is {student_avg}");
+
+            if (student_avg < 4)
+            {
+                Console.WriteLine($"Student with id = {student_id} have bad marks");
+            }
         }
     }
 }
