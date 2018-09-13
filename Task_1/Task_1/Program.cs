@@ -35,7 +35,7 @@ namespace Task_1
                     new Student
                     {
                         Id = 2,
-                        Name = "Ann",
+                        Name = "Andrey",
                         Marks = new List<Mark>
                         {
                             new Mark {Value = 8},
