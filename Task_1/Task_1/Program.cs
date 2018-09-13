@@ -61,7 +61,7 @@ namespace Task_1
                         Marks = new List<Mark>
                         {
                             new Mark {Value = 6},
-                            new Mark {Value = 9},
+                            new Mark {Value = 10},
                             new Mark {Value = 7}
                         }
                     }
