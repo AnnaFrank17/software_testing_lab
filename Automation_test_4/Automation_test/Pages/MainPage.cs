@@ -30,6 +30,27 @@ namespace Automation_test.Pages
         [FindsBy(How = How.XPath, Using = "//*[@class='select2-results']//li")]
         public IWebElement SelectFormResultItem { get; set; }
 
+        [FindsBy(How = How.XPath, Using = "//*[contains(@class, 'passenger-select')]")]
+        public IWebElement SelectPassengerContainer { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//*[contains(@class, 'passenger-select')]//label[contains(text(), 'взрослый')]/following-sibling::div//*[contains(@class, 'minus')]")]
+        public IWebElement BtnAdultMinus { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//*[contains(@class, 'nxm-guestAdult')]")]
+        public IWebElement AdultValue { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//*[@id='fligth-searh']//*[@type='submit' and contains(@class, 'nxm2_btn nxm2_btn-big nxm2_btn-full nxm2_btn-dark_orange')]")]
+        public IWebElement BtnFind { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//*[contains(@class, 'nxm2_language-btn')]")]
+        public IWebElement SelectLanguage { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//*[contains(text(), 'English')]")]
+        public IWebElement ChangeToEnglishElement { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//*[contains(@id, 'divBolBolPoint')]//input")]
+        public IWebElement BtnBolPoints { get; set; }
+
         private IWebDriver _driver;
 
         public MainPage(IWebDriver driver)
@@ -64,8 +85,16 @@ namespace Automation_test.Pages
 
         public IWebElement SelectDepartDay(int day)
         {
-            var xPath = $"//*[contains(@id, 'pgs-departure-datepicker')]//table//td/span[contains(text(), '{day}')]";
+            var xPath = $"//*[contains(@id, 'pgs-departure-datepicker')]//table//*[contains(text(), '{day}')]/..";
             var dayElement = _driver.FindElement(By.XPath(xPath));
+
+            return dayElement;
+        }
+
+        public IWebElement SelectReturnDay(int day)
+        {
+            var xPath = $"//*[contains(@id, 'pgs-departure-datepicker')]//table//*[contains(text(), '{day}')]";
+            var dayElement = _driver.FindElements(By.XPath(xPath))[0];
 
             return dayElement;
         }
