@@ -14,6 +14,8 @@ namespace Automation_test.Steps
     {
         private IWebDriver _driver;
 
+        private MainPage _mainPage;
+
         public void InitBrowser()
         {
             _driver = DriverInstance.GetInstance();
@@ -25,12 +27,21 @@ namespace Automation_test.Steps
             DriverInstance.CloseBrowser();
         }
 
-        public IWebElement SelectCity(string cityName)
+        public void OpenMainPage()
         {
-            var mainPage = new MainPage(_driver);
+            _mainPage = new MainPage(_driver);
 
-            mainPage.OpenPage();
-            return mainPage.SelectCity(cityName);
+            _mainPage.OpenPage();
+        }
+
+        public IWebElement SelectFromCity(string cityName)
+        {
+            return _mainPage.SelectFromCity(cityName);
+        }
+
+        public IWebElement SelectToCity(string cityName)
+        {
+            return _mainPage.SelectToCity(cityName);
         }
 
         public IWebElement SelectOneWayType()
@@ -41,6 +52,13 @@ namespace Automation_test.Steps
             maiPage.BtnOneWay.Click();
 
             return maiPage.ReturnDateContainer;
+        }
+
+        public IWebElement SelectDepartDate(DateTime date)
+        {
+            var day = date.Day;
+
+            return _mainPage.SelectDepartDay(day);
         }
     }
 }

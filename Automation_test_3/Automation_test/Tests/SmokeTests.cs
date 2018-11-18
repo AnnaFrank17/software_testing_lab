@@ -31,7 +31,8 @@ namespace Automation_test.Tests
         {
             var cityName = Guid.NewGuid().ToString();
 
-            var selectedItem = _steps.SelectCity(cityName);
+            _steps.OpenMainPage();
+            var selectedItem = _steps.SelectFromCity(cityName);
 
             Assert.AreEqual(selectedItem.Text, "Совпадений не найдено");
         }
@@ -44,6 +45,27 @@ namespace Automation_test.Tests
             var isReturnDateDisplayed = returnDateContainer.Displayed;
 
             Assert.AreEqual(isReturnDateDisplayed, false, "Return date should hide after button click");
+        }
+
+        [Test]
+        public void FromDateMoreThanToDate()
+        {
+            var fromCity = "Antalya";
+            var toCity = "Barcelona";
+            var departDay = DateTime.Now.AddDays(-2);
+
+            _steps.OpenMainPage();
+            _steps
+                .SelectFromCity(fromCity)
+                .Click();
+            _steps
+                .SelectToCity(toCity)
+                .Click();
+
+            var departDayElement = _steps.SelectDepartDate(departDay);
+            var isDepartDayDisabled = departDayElement.Displayed;
+
+            Assert.IsFalse(isDepartDayDisabled);
         }
     }
 }
