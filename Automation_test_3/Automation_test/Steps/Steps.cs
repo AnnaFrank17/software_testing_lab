@@ -25,25 +25,22 @@ namespace Automation_test.Steps
             DriverInstance.CloseBrowser();
         }
 
-        public void ConfirmFormCityDidntExist()
+        public IWebElement SelectCity(string cityName)
         {
             var mainPage = new MainPage(_driver);
 
-            var cityName = Guid.NewGuid().ToString();
-
-            var selectedItem = mainPage.SelectCity(cityName);
-
-            Assert.AreEqual(selectedItem.Text, "Совпадений не найдено");
+            mainPage.OpenPage();
+            return mainPage.SelectCity(cityName);
         }
 
-        public void CofirmFormCityHide()
+        public IWebElement SelectOneWayType()
         {
             var maiPage = new MainPage(_driver);
 
+            maiPage.OpenPage();
             maiPage.BtnOneWay.Click();
-            var isReturnDateDisplayed = maiPage.ReturnDateContainer.Displayed;
 
-            Assert.AreEqual(isReturnDateDisplayed, false, "Return date should hide after button click");
+            return maiPage.ReturnDateContainer;
         }
     }
 }

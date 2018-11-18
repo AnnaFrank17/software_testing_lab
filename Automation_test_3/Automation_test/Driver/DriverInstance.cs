@@ -22,7 +22,6 @@ namespace Automation_test.Driver
             if (_driver == null)
             {
                 _driver = new ChromeDriver();
-                _driver.Manage().Timeouts().ImplicitWait.Add(TimeSpan.FromSeconds(30));
                 _driver.Manage().Window.Maximize();
             }
 
