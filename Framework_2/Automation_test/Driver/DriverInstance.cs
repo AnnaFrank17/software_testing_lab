@@ -22,7 +22,7 @@ namespace Automation_test.Driver
             if (_driver == null)
             {
                 _driver = new ChromeDriver();
-                _driver.Manage().Window.Maximize();
+                //_driver.Manage().Window.Maximize();
             }
 
             return _driver;
