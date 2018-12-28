@@ -171,5 +171,38 @@ namespace Automation_test.Tests
 
             Assert.AreEqual(fromCity, fromCityResult);
         }
+
+        [Test]
+        public void FilterNightFlightsResultsTest()
+        {
+            var fromCity = "Antalya";
+            var toCity = "Barcelona";
+            var departDay = DateTime.Now.AddDays(3);
+
+            _steps.OpenMainPage();
+            _steps
+                .SelectFromCity(fromCity)
+                .Click();
+            _steps
+                .SelectToCity(toCity)
+                .Click();
+
+            _steps.SelectOneWayType();
+
+            ScrollHelpers.ScrollTo(_steps._driver, 300);
+
+            _steps.OpenDepartContainer();
+            _steps.SelectDepartDate(departDay).Click();
+
+            _steps.FindResults();
+            _steps.OpenResultPage();
+
+            var fromCityResult = _steps.GetFromCity();
+            var toCityResult = _steps.GetToCity();
+
+            Assert.AreEqual(fromCity, fromCityResult);
+
+            _steps.ApplyNightFilter();
+        }
     }
 }

@@ -139,5 +139,12 @@ namespace Automation_test.Steps
         {
             _mainPage.BtnBolPoints.Click();
         }
+
+        public void ApplyNightFilter()
+        {
+            _resultPage.FilterButton.Click();
+            _resultPage.FilterNightButton.Click();
+            _resultPage.BtnApplyFilter.Click();
+        }
     }
 }
